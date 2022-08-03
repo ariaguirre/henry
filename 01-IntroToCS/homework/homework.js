@@ -1,4 +1,4 @@
-'use strict'
+'use strictj' 
 
 function BinarioADecimal(num) {
   // tu codigo aca
