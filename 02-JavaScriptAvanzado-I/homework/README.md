@@ -1,4 +1,4 @@
-
+ 
 # Homework JavaScript Avanzado I
 
 ## Scope & Hoisting
@@ -13,20 +13,20 @@ var a = 5;
 var b = 10;
 var c = function(a, b, c) {
   var x = 10;
-  console.log(x);
-  console.log(a);
+  console.log(x);  // 10
+  console.log(a);    // 5
   var f = function(a, b, c) {
     b = a;
-    console.log(b);
+    console.log(b);     // 5
     b = c;
     var x = 5;
   }
   f(a,b,c);
-  console.log(b);
+  console.log(b);        // 5
 }
 c(8,9,10);
-console.log(b);
-console.log(x);
+console.log(b);      // 10
+console.log(x);      // undefined
 ```
 
 ```javascript
@@ -43,19 +43,19 @@ var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
-console.log(instructor);
+console.log(instructor);      // "Tony"
 ```
 
 ```javascript
 var instructor = "Tony";
-console.log(instructor);
+console.log(instructor);   // "Tony"
 (function() {
    if(true) {
       var instructor = "Franco";
       console.log(instructor);
    }
-})();
-console.log(instructor);
+})();                      // false
+console.log(instructor);      // "Tony"
 ```
 
 ```javascript
@@ -67,21 +67,21 @@ if (true) {
     console.log(instructor);
     console.log(pm);
 }
-console.log(instructor);
-console.log(pm);
+console.log(instructor);   // "Tony"
+console.log(pm);           // "Franco"
 ```
 ### Coerción de Datos
 
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
 
 ```javascript
-6 / "3"
-"2" * "3"
-4 + 5 + "px"
-"$" + 4 + 5
-"4" - 2
-"4px" - 2
-7 / 0
+6 / "3"     // 2
+"2" * "3"      // 6
+4 + 5 + "px"      // "9px"
+"$" + 4 + 5       //"$9"
+"4" - 2           // 2
+"4px" - 2         // NaN
+7 / 0             // Infinity
 {}[0]
 parseInt("09")
 5 && 2
@@ -102,14 +102,14 @@ parseInt("09")
 
 ```javascript
 function test() {
-   console.log(a);
+   console.log(a);      //undefined
    console.log(foo());
 
    var a = 1;
    function foo() {
       return 2;
    }
-}
+}        // undefined
 
 test();
 ```
