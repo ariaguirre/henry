@@ -84,13 +84,13 @@ console.log(pm);           // "Franco"
 7 / 0             // Infinity
 {}[0]
 parseInt("09")
-5 && 2
-2 && 5
-5 || 0
-0 || 5
-[3]+[3]-[10]
-3>2>1
-[] == ![]
+5 && 2         // 2
+2 && 5         // 5 
+5 || 0      // 5 
+0 || 5.     // 5
+[3]+[3]-[10]   // 23
+3>2>1          // false
+[] == ![]      // true
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -102,7 +102,7 @@ parseInt("09")
 
 ```javascript
 function test() {
-   console.log(a);      //undefined
+   console.log(a);      //undefined,
    console.log(foo());
 
    var a = 1;
@@ -145,9 +145,9 @@ var obj = {
          return this.fullname;
       }
    }
-};
+};  
 
-console.log(obj.prop.getFullname());
+console.log(obj.prop.getFullname());   // Aurelio De Rosa
 
 var test = obj.prop.getFullname;
 
