@@ -45,18 +45,41 @@ function cacheFunction(cb) {
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) 
 
   */
-  const memory = {};
-  return function(arg){
+  const memory = {};      // {} es un objeto vacio
+  return function(arg){           // cuando mande 5, va a guardar la propiedad 5 y el valor del mismo
     if(!memory.hasOwnProperty(arg)){
       console.log("Ejecuto")
       memory[arg] = cb(arg);
     }
     console.log("Ya esta")
-    return memory[arg];
+    return memory[arg];                     
   }
 
 }
 
+/*
+function cacheFunction(cb) {
+let cache = {}
+  return function(arg) {
+    if(cache.hasOwnProperty(arg)){
+     return cache[arg];
+     }else{
+         cache[arg] = cb(arg); 
+         return cache[arg];
+       }
+    } */
+
+
+/* function cacheFunction(cb) {
+  let cache = {};
+    return function(arg){
+    if(!cache.hasOwnProperty(arg)) {    // si no existe esta propiedad en el cache, haz esto
+          cache[arg] = cb(arg);         // cache[arg] busca la variable arg
+    }
+    return cache[arg];
+  }
+}
+ */
 // Bind
 
 var instructor = {
@@ -93,13 +116,22 @@ getNombreAlumno = getNombre.bind(alumno);
   Sin modificar la función crearCadena, usar bind para guardar, en las tres variables declaradas a continuación, tres funciones que retornen una cadena (string) y el delimitador especificado (asteriscos, guiones, y guiones bajos, respectivamente). Las funciones obtenidas deberían recibir solamente un argumento - la cadena de texto - ya que los otros argumentos habrán sido "bindeados". 
 */
 
-function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
-  return delimitadorIzquierda + cadena + delimitadorDerecha;
-}
-                                                          //let vacio = "vacio";
-let textoAsteriscos = crearCadena.bind(this, "*", "*");  // crearCadena.bind(vacio, "*", "*");
-let textoGuiones = crearCadena.bind(this,"-", "-");      // crearCadena.bind(false,"-", "-");
-let textoUnderscore = crearCadena.bind(this, "_", "_");   //crearCadena.bind(Number, "_", "_");
+function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {     // el 3er arg se pasa cuando se ejecuta la funcion
+  return delimitadorIzquierda + cadena + delimitadorDerecha;                // el return lo ordena
+};
+let textoAsteriscos = crearCadena.bind(this, "*", "*");  
+let textoGuiones = crearCadena.bind(this,"-", "-");      
+let textoUnderscore = crearCadena.bind(this, "_", "_");   
+
+
+/* let vacio = "vacio";
+let textoAsteriscos = crearCadena.bind(vacio, "*", "*");
+let textoGuiones = crearCadena.bind(false,"-", "-");
+let textoUnderscore = crearCadena.bind(Number, "_", "_"); */
+
+/* la cadena se pasa cuando se ejecuta la funcion:
+textoAsteriscos("hola"); */
+
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
