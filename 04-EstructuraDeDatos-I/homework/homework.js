@@ -63,22 +63,17 @@ Queue.prototype.size = function(){
 
 /* class Queue {
   constructor() {
-
-  this.items = [];
-  this.items.length === 0;
-}
-  enqueue(item) {
-    this.items.push(item);
+    this.arr = [];
   }
-  dequeue() {
-  if (this.items.length === 0) {
-        return undefined;
-      }
-      return this.items.shift();
-    }
-    getSize() {
-      return this.items.length;
-    }
+  size(){
+    return this.arr.length;
+  }
+  Queue.prototype.enqueue = function(data){
+    this.arr.push(data);
+  }
+  Queue.prototype.dequeue = function(){
+    return this.arr.shift();
+  }
 } */
 
 
