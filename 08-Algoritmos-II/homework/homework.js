@@ -6,7 +6,23 @@ function quickSort(array) {
   // el array recibido como parámetro
   // Devolver el array ordenado resultante
   // Tu código:
+  
+  if(array.length <= 1) return array;     // no hay nada que ordenar
 
+  let left = [];
+  let right= [];
+  let pivote = array.pop();     // agarro el ultimo valor del arreglo
+  let myArr = [];            // donde voy a guardar mi array ordenado
+   
+    for(let i = 0; i < array.length; i++){
+      if (array[i] <= pivote ? left.push(array[i]) : right.push(array[i]));   // mejor manera de hacerlo
+     /*  if (array[i] <= pivote){          // guardo a izq o der dependiendo si el valor de i es mayor, menor o igual al del pivote
+        left.push(array[i]);
+      } else {
+        right.push(array[i]);
+      } */
+    }
+    return myArr.concat(quickSort(left), pivote, quickSort(right));  // retorno el array ordenado con los valores menores al pivote, el pivote y los valores mayores a este.
 }
 
 function mergeSort(array) {
